@@ -2,7 +2,7 @@
   <div>
     <div class="container">
       <div class="clear"></div>
-      <button @click="$router.push({path: '/'})">BACK</button>
+      <button @click="$router.push({ path: '/' })">BACK</button>
       <div v-for="product in arrProduct" :key="product.idPro">
         <div class="product">
           <img :src="product.image" alt="image" />
@@ -33,7 +33,7 @@
               <li>Price: {{ product.price }}</li>
             </ul>
             <router-link
-              :to="{ name: 'detail', params: { idd: product.idPro } }"
+              :to="{ name: 'detail', params: { id: product.idPro } }"
               class="butDetail"
               v-on:click="call(product)"
             >
@@ -85,7 +85,9 @@ export default {
 </script>
 <style scoped>
 .disable {
-  background-color: black;
+  background-color: black !important;
+  color: white !important;
+  font-weight: bold;
 }
 .static {
   display: block;
@@ -182,7 +184,7 @@ img {
   box-sizing: border-box;
   width: 60px;
   border: 1px solid cornflowerblue;
-  
+
   padding: 6.3px;
 }
 .butCart {
@@ -190,8 +192,6 @@ img {
   background-color: cornflowerblue;
   border: 1px solid cornflowerblue;
   color: white;
-  border: none;
-  outline: none;
   font-size: 15px;
   height: 32px;
   width: 60px;

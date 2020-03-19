@@ -1,8 +1,16 @@
 <template>
   <div>
     <div class="fixed">
-      <div class="cart">Cart = {{ Counter }} <button class="x">X</button></div>
-      <div v-for="cart in inCart" v-bind:key="cart.idPro" class="cartdetail">
+      <div class="cart">
+        Cart = {{ Counter }}
+        <button class="x" @click="toggle = !toggle">X</button>
+      </div>
+      <div
+        v-for="cart in inCart"
+        v-show="toggle"
+        v-bind:key="cart.idPro"
+        class="cartdetail"
+      >
         <div>Product Name: {{ cart.name }}</div>
         <div>Product id: {{ cart.idPro }}</div>
         <div>Choosed: {{ cart.qty }}</div>
@@ -16,6 +24,11 @@
 <script>
 export default {
   name: "Cart",
+  data() {
+    return {
+      toggle: true
+    };
+  },
   computed: {
     inCart() {
       return this.$store.getters.inCart;
@@ -117,10 +130,8 @@ img {
   background-color: cornsilk;
 }
 .cartdetail {
-  display: none;
   width: 40%;
   border-bottom: 1px solid black;
-
   float: left;
 }
 .pro1 {

@@ -10,19 +10,22 @@ export default new Router({
       component: home
     },
     {
-      path: "/about", 
-      name: 'about',
-      component: () => import(/* webpackChunkName: about */ "./components/about")
+      path: "/about",
+      name: "about",
+      component: () =>
+        import( "./components/about")
     },
     {
       path: "/product",
-      name: 'product',
-      component: () => import(/* webpackChunkName: detail */ "./components/product")
+      name: "product",
+      component: () =>
+        import( "./components/product")
     },
     {
-      path: "/detail/:idd",
-      name: 'detail',
-      component: () => import(/* webpackChunkName: detail */ "./components/detail")
+      path: "/detail/:id",
+      name: "detail",
+      component: () =>
+        import( "./components/detail")
     }
   ]
 });

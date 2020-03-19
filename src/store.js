@@ -8,7 +8,7 @@ export default new Vuex.Store({
   state: {
     products: [],
     carts: [],
-    items:{}
+    items: {}
   },
   getters: {
     getProducts: state => state.products,
@@ -23,10 +23,10 @@ export default new Vuex.Store({
       state.carts = cartApi;
     },
     itemss(state, api) {
-      state.items = api; 
+      state.items = api;
     },
     updateCart(state, product) {
-      console.log(product.idPro)
+      console.log(product.idPro);
       let found = this.state.carts.find(array => {
         return array.idPro == product.idPro;
       });
@@ -40,7 +40,7 @@ export default new Vuex.Store({
           price: product.price
         });
       }
-      product.proStatic --;
+      product.proStatic--;
     }
   },
   actions: {
@@ -55,8 +55,8 @@ export default new Vuex.Store({
           throw new Error(`API ${error}`);
         });
     },
-    itemProduct({commit}, product) {
-      console.log(product,455454)
+    itemProduct({ commit }, product) {
+      console.log(product, 455454);
       Vue.axios
         .get("http://localhost:3000/product/get/" + product)
         .then(result => {
@@ -65,9 +65,7 @@ export default new Vuex.Store({
         .catch(error => {
           throw new Error(`API ${error}`);
         });
-        
     },
-
 
     //GET from cart api
     listCart({ commit }) {
@@ -82,18 +80,17 @@ export default new Vuex.Store({
     },
     //post to cart API
     saveCart(state, product) {
-        Vue.axios
-          .post("http://localhost:3000/cart/create", {
-            idPro: product.idPro,
-            price: product.price,
-            name: product.name,
-            qty: 1
-          })
-          .catch(error => {
-            console.log(error)
+      Vue.axios
+        .post("http://localhost:3000/cart/create", {
+          idPro: product.idPro,
+          price: product.price,
+          name: product.name,
+          qty: 1
+        })
+        .catch(error => {
+          console.log(error);
           console.log("else");
-          });
-      
+        });
     },
     callUpdateCart({ commit }, product) {
       commit("updateCart", product);

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="$router.push({path: '/product'})">BACK</button>
+    <button @click="$router.push({ path: '/product' })">BACK</button>
     <div class="item">
       <img :src="detail.image" alt="detail.name" />
       <ul>
@@ -16,14 +16,13 @@
 <script>
 export default {
   name: "detail",
-  computed: { 
+  computed: {
     detail() {
       return this.$store.getters.items;
     }
   },
   beforeMount() {
-      return this.$store.dispatch("itemProduct", this.$route.params.idd);
- 
+    return this.$store.dispatch("itemProduct", this.$route.params.id);
   }
 };
 </script>
