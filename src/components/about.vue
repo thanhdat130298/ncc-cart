@@ -1,6 +1,5 @@
 <template>
     <div>
-        <button @click="$router.push({path: '/'})">BACK</button>
         <p> ABOUT</p>
     </div>
 </template>

@@ -2,7 +2,6 @@
   <div>
     <div class="container">
       <div class="clear"></div>
-      <button @click="$router.push({ path: '/' })">BACK</button>
       <div v-for="product in arrProduct" :key="product.idPro">
         <div class="product">
           <img :src="product.image" alt="image" />

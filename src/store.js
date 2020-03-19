@@ -22,8 +22,8 @@ export default new Vuex.Store({
     SAVE_CART(state, cartApi) {
       state.carts = cartApi;
     },
-    itemss(state, api) {
-      state.items = api;
+    itemss(state, objectApi) {
+      state.items = objectApi;
     },
     updateCart(state, product) {
       console.log(product.idPro);
@@ -55,10 +55,9 @@ export default new Vuex.Store({
           throw new Error(`API ${error}`);
         });
     },
-    itemProduct({ commit }, product) {
-      console.log(product, 455454);
+    itemProduct({ commit }, id) {
       Vue.axios
-        .get("http://localhost:3000/product/get/" + product)
+        .get("http://localhost:3000/product/get/" + id)
         .then(result => {
           commit("itemss", result.data);
         })
